@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Letter Position</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital@1&display=swap');
+        body {
+            font-family: 'Playfair Display', serif;
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background: linear-gradient(#c54dc9, #098286);
+        }
+
+        h2 {
+            font-family: 'Playfair Display', serif;
+            text-align: center;
+            color:black;
+
+        }
+
+        .input {
+            font-family: 'Playfair Display', serif;
+            display: block;
+            margin: 20px auto;
+            padding: 10px;
+            font-size: 16px;
+            color:black;
+        }
+
+        .button-container {
+            font-family: 'Playfair Display', serif;
+            text-align: center;
+            margin-top: 20px;
+            color:black;
+        }
+
+        .btn {
+            font-family: 'Playfair Display', serif;
+            padding: 10px 20px;
+            margin: 0 5px;
+            font-size: 16px;
+            cursor: pointer;
+            color:black;
+        }
+
+        #positionDisplay {
+            font-family: 'Playfair Display', serif;
+            text-align: center;
+            margin-top: 20px;
+            color:black;
+        }
+    </style>
+</head>
+<body>
+    <h2>Enter a letter</h2>
+    <input type="text" id="inputValue" class="input">
+    <div class="button-container">
+        <button class="btn" onclick="findPosition()">Find Position</button>
+        <button class="btn" onclick="resetInput()">Reset</button>
+    </div>
+    <p id="positionDisplay"></p>
+
+    <script>
+        function findPosition() {
+            var input = document.getElementById('inputValue').value.toLowerCase();
+            var alphabet = ['a', 'b' , 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
+            var position = alphabet.indexOf(input) + 1;
+            
+            if (position > 0 && position <= 26) {
+                document.getElementById('positionDisplay').innerHTML = "The position of the letter '" + input + "' in the alphabet is " + position + ".";
+            } else {
+                document.getElementById('positionDisplay').innerHTML = "Invalid input or letter not found in the alphabet.";
+            }
+        }
+
+        function resetInput() {
+            document.getElementById('inputValue').value = '';
+            document.getElementById('positionDisplay').innerHTML = '';
+        }
+    </script>
+</body>
+</html>
+

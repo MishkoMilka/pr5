@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    body {
+      background-image: url('https://media.istockphoto.com/id/1440740357/ru/%D0%B2%D0%B8%D0%B4%D0%B5%D0%BE/%D0%B0%D0%BD%D0%B8%D0%BC%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%BD%D0%B0%D1%8F-%D0%B0%D0%B1%D1%81%D1%82%D1%80%D0%B0%D0%BA%D1%82%D0%BD%D0%B0%D1%8F-%D1%82%D0%B5%D1%85%D0%BD%D0%BE%D0%BB%D0%BE%D0%B3%D0%B8%D1%8F-%D1%82%D0%B5%D0%BC%D0%BD%D0%BE%D0%B3%D0%BE-%D1%84%D0%BE%D0%BD%D0%B0-%D1%81%D0%B2%D0%B5%D1%82%D1%8F%D1%89%D0%B8%D0%B5%D1%81%D1%8F-%D1%81%D0%BB%D1%83%D1%87%D0%B0%D0%B9%D0%BD%D1%8B%D0%B5-%D1%82%D0%BE%D1%87%D0%BA%D0%B8-%D0%B8-%D1%81%D0%B5%D1%82%D0%BA%D0%B0-%D0%B4%D0%B0%D0%BD%D0%BD%D1%8B%D0%B5.jpg?b=1&s=640x640&k=20&c=CTJ8oQcapmY7jBRvOLXE7ris3938mr71lcq9bCydB8g=');
+      background-size: cover;
+      background-repeat: no-repeat;
+      padding: 0;
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+    .container {
+      margin-top: 50px;
+      border: 2px solid rgb(0, 0, 0);
+      padding: 20px;
+      width: 300px;
+      background-color: rgb(190, 79, 148);
+      opacity: 0.9;
+      margin: 200px auto; /* Центрирование по вертикали и горизонтали */
+      text-align: center; /* Центрирование содержимого по горизонтали */
+    }
+    .btn {
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <script>
+    function money() {
+      var money = document.money.a.value;
+      let string;
+      let answer=document.getElementById("answer");
+      if(isNaN(money)){ 
+        string='You have entered a non-numeric value.' 
+      }else if (+money < 50 ||+money > 3000){ 
+        string='Unfortunately, you can only withdraw an amount between 50 UAH and 3000 UAH.'; 
+      }else if(+money%10!=0){ 
+        string= 'The smallest ATM bill is 10 UAH, so the remainder will be deducted as a commission. Take your money in the amount of ' + (money - money%10) + ' UAH. The bank keeps ' + money%10 + ' UAH.'; 
+      }else{ 
+        string='Take your money in the amount of ' + money + ' UAH.'; 
+      } 
+      answer.innerHTML = string;
+    } 
+  </script> 
+  <div class="container"> 
+    <center><p><b>ATM </b></p></center> 
+    <form name="money" action="javascript:money()">
+      <p style="margin-bottom: -20px;">How much do you want to withdraw?</p><br> 
+      (The smallest ATM bill is 10 UAH and the largest one is 3,000 UAH.)<br><input class="side" name="a" type="text" value="" size="4"> 
+      <input class="btn" type="submit" value="OK"> 
+      <input class="btn" type="reset" name="reset" value="Reset"><br> 
+      <span id="answer"></span>
+    </form>
+  </div>
+</body>
+</html>

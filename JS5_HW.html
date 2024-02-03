@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Season Checker</title>
+    <style>
+        
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital@1&display=swap');
+
+        body {
+            font-family: 'Playfair Display', serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            background-image: url(https://img.freepik.com/free-vector/watercolor-4-seasons-illustration_23-2149420782.jpg);
+            color:rgba(0, 0, 0, 0.801);
+        }
+
+        input {
+            font-family: 'Playfair Display', serif;
+            padding: 10px;
+            margin-bottom: 20px;
+        }
+
+        button {
+            font-family: 'Playfair Display', serif;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>Enter a number from 1 to 12 to find out the corresponding season</h2>
+    <input type="number" id="seasonInput">
+    <button onclick="checkSeason()">Check Season</button>
+    <p id="seasonResult"></p>
+
+    <script>
+        function checkSeason() {
+            let season = document.getElementById('seasonInput').value;
+            let result = document.getElementById('seasonResult');
+            if (season >= 1 && season <= 2) {
+                result.innerText = "This number corresponds to a month in the Winter season";
+            } else if (season >= 3 && season <= 5) {
+                result.innerText = "This number corresponds to a month in the Spring season";
+            } else if (season >= 6 && season <= 8) {
+                result.innerText = "This number corresponds to a month in the Summer season";
+            } else if (season >= 9 && season <= 11) {
+                result.innerText = "This number corresponds to a month in the Autumn season";
+            } else {
+                result.innerText = "This is not valid! Please try again!";
+            }
+        }
+    </script>
+</body>
+
+</html>

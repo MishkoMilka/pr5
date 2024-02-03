@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Check for Spam</title>
+    <style>
+       @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital@1&display=swap');
+        body {
+          font-size: 24px;
+          font-family: 'Playfair Display', serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+            background: linear-gradient(#c54dc9, #098286);
+            color:rgb(0, 0, 0)
+            
+        }
+        input[type="text"] {
+          font-family: 'Playfair Display', serif;
+            padding: 15px;
+            margin-bottom: 20px;
+            width: 300px;
+        }
+        button {
+          font-family: 'Playfair Display', serif;
+            padding: 15px 30px;
+            background-color: #000000;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+          font-family: 'Playfair Display', serif;
+            background-color: #000000;
+        }
+        .result {
+          font-family: 'Playfair Display', serif;
+            margin-top: 20px;
+        }
+        
+    </style>
+</head>
+<body>
+    <h1>Check for Spam</h1>
+    <input type="text" id="userInput" placeholder="Enter text">
+    <button onclick="checkForSpam()">Check for Spam</button>
+    <p class="result" id="result"></p>
+    <p class="large-text">Answer</p>
+
+    <script>
+        function checkForSpam() {
+            const inputElement = document.getElementById("userInput");
+            const userInput = inputElement.value.toLowerCase();
+            const resultElement = document.getElementById("result");
+            if (userInput.includes("free")) {
+                resultElement.innerText = "The input text contains the word 'free'";
+            } else {
+                resultElement.innerText = "The input text does not contain the word 'free'";
+            }
+        }
+    </script>
+</body>
+</html>

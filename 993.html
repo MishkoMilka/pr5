@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Power</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital@1&display=swap');
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: linear-gradient(#9f63d8, #2a83be);
+            color: #fff;
+            text-align: center;
+        }
+        .container {
+            font-family: 'Playfair Display', serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            width: 100%;
+        }
+        .level, .power {
+            font-family: 'Playfair Display', serif;
+            width: 50%;
+            padding: 20px;
+        }
+        .power {
+            font-family: 'Playfair Display', serif;
+            border-left: 1px solid #fff;
+        }
+        p {
+            font-family: 'Playfair Display', serif;
+            margin-top: 0;
+            font-size: 24px;
+        }
+        form {
+            font-family: 'Playfair Display', serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        input {
+            font-family: 'Playfair Display', serif;
+            margin: 10px 0;
+            padding: 10px;
+            border: none;
+            background-color: #ffffff;
+            color: #000000;
+            text-align: center;
+        }
+        .btn {
+            font-family: 'Playfair Display', serif;
+            background-color: #b1cfe2;
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+            border-radius: 12px;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        function grades(){
+            let grade = parseInt(document.getElementById("gradeValue").value);
+            let answer = document.getElementById("level");
+            let string;
+            switch(grade){
+                case 1:
+                case 2:
+                case 3:
+                    string='Badly';
+                    break;
+                case 4:
+                case 5:
+                case 6:
+                    string='Intermediate';
+                    break;
+                case 7:
+                case 8:
+                case 9:
+                    string='Satisfactory';
+                    break;
+                case 10:
+                case 11:
+                case 12:
+                    string='High';
+                    break;
+                default:
+                    string='No such grade exists.';
+            }
+            answer.innerHTML = string;
+        }
+    </script>
+    <div class="container">
+        <div class="level">
+            <p>Find out at what level you are studying</p>
+            <form>
+                Enter your average grade: <input type="number" id="gradeValue" name="gradeValue" value="" size="4">
+                <div>
+                    <input class="btn" type="button" onclick="grades()" value="Get the answer">
+                    <input class="btn" type="reset" value="Reset">
+                </div>
+            </form>
+            <p>Your level: <span id="level"></span></p>
+        </div>
+    </div>
+</body>
+</html>

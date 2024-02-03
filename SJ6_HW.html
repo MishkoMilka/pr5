@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emoji</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital@1&display=swap');
+        body {
+            font-family: 'Playfair Display', serif;
+            text-align: center;
+            padding-top: 50px;
+            font-size: 24px;
+            background-image: url(https://img.freepik.com/free-vector/emoticons-with-empty-space-background_79603-1023.jpg);
+        }
+        #output {
+            font-family: 'Playfair Display', serif;
+            font-size: 48px;
+        }
+        button{
+            font-family: 'Playfair Display', serif;
+            color: rgb(164, 179, 31);
+        }
+    </style>
+</head>
+<body>
+    <h1>Emoji</h1>
+    <p>Enter the minimum and maximum emoji codes:</p>
+    <form>
+        <label for="minEmojiCode">Minimum Emoji Code:</label>
+        <input type="text" id="minEmojiCode">
+        <br>
+        <label for="maxEmojiCode">Maximum Emoji Code:</label>
+        <input type="text" id="maxEmojiCode">
+        <br>
+        <button type="button" onclick="displayEmoji()">Display Emoji</button>
+    </form>
+    <div id="output"></div>
+
+    <script>
+        function displayEmoji() {
+            let minEmojiCode = parseInt(document.getElementById('minEmojiCode').value);
+            let maxEmojiCode = parseInt(document.getElementById('maxEmojiCode').value);
+            let output = "";
+            for (let i = minEmojiCode; i <= maxEmojiCode; i++) {
+                output += "Emoji Code: " + i + " - " + String.fromCodePoint(i) + "<br>";
+            }
+            document.getElementById('output').innerHTML = output;
+        }
+    </script>
+</body>
+</html>

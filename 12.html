@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Capital Population</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Grape+Nuts&family=Merriweather:ital,wght@1,300&family=Raleway:ital,wght@1,100&display=swap');
+
+    body {
+      background-image: url('https://img.freepik.com/premium-vector/city-background-vector_634779-158.jpg');
+      font-family: 'Grape Nuts', cursive;
+font-family: 'Merriweather', serif;
+font-family: 'Raleway', sans-serif;
+      background-color: #f4f4f4;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      color:black;
+    }
+    #content {
+      background-color: rgb(255, 255, 255);
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgb(0, 0, 0);
+    }
+    input[type="text"] {
+      padding: 8px;
+      margin-right: 10px;
+    }
+    button {
+      padding: 8px 16px;
+    }
+    ul {
+      list-style-type: none;
+      padding: 0;
+    }
+    ul li {
+      margin-bottom: 8px;
+      font-size: 16px;
+    }
+    label {
+      color:black;
+    }
+  </style>
+</head>
+<body>
+  <div id="content">
+    <h1>Capital Population</h1>
+    <label for="sortOrder">Enter 'largest' or 'smallest':</label>
+    <input type="text" id="sortOrder">
+    <button onclick="sortCapitals()">Submit</button>
+    <div id="output"></div>
+  </div>
+
+  <script>
+    let capitals = {
+      'Kyiv': 2884000,
+      'London': 8982000,
+      'Paris': 2148000,
+      'Tokyo': 13929286,
+      'Moscow': 12615882,
+      'New York': 8398748,
+      'Beijing': 21540000,
+      'Cairo': 20076000
+    };
+
+    function sortCapitals() {
+      const sortOrder = document.getElementById('sortOrder').value.toLowerCase();
+      const outputDiv = document.getElementById('output');
+      outputDiv.innerHTML = '';
+
+      if (sortOrder === 'largest') {
+        let sortedCapitals = Object.entries(capitals).sort((a, b) => b[1] - a[1]);
+        let ul = document.createElement('ul');
+        sortedCapitals.forEach(([capital, population]) => {
+          const li = document.createElement('li');
+          li.textContent = `${capital}: ${population.toLocaleString()}`;
+          ul.appendChild(li);
+        });
+        outputDiv.appendChild(ul);
+      } else if (sortOrder === 'smallest') {
+        let sortedCapitals = Object.entries(capitals).sort((a, b) => a[1] - b[1]);
+        let ul = document.createElement('ul');
+        sortedCapitals.forEach(([capital, population]) => {
+          let li = document.createElement('li');
+          li.textContent = `${capital}: ${population.toLocaleString()}`;
+          ul.appendChild(li);
+        });
+        outputDiv.appendChild(ul);
+      } else {
+        outputDiv.textContent = 'Invalid input. Please enter "largest" or "smallest".';
+      }
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Space Flight Quiz</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital@1&display=swap');
+        body {
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            font-family: 'Playfair Display', serif;
+            background-image: url(https://storage.picsave.pp.ua/cluster1/origin/2b3dd6606ce4a51576b6e5987ba817eb.jpg)
+            
+        }
+
+        input {
+            font-family: 'Playfair Display', serif;
+            padding: 10px;
+            margin: 10px;
+            
+        }
+
+        button {
+            font-family: 'Playfair Display', serif;
+            padding: 10px 20px;
+            margin: 10px;
+            cursor: pointer;
+            
+        }
+
+        .result {
+            font-family: 'Playfair Display', serif;
+            margin-top: 20px;
+            font-weight: bold;
+            
+        }
+        h1 {
+            font-family: 'Playfair Display', serif;
+            color: white;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Guess the Year of the First Human Space Flight</h1>
+    <input type="number" id="spaceYearInput" placeholder="Enter a year">
+    <button onclick="checkAnswer()">Check Answer</button>
+    <p class="result" id="result"></p>
+
+    <script>
+        function checkAnswer() {
+            let spaceYear = document.getElementById('spaceYearInput').value;
+            let resultText = document.getElementById('result');
+
+            if (spaceYear === '1961') {
+                resultText.innerText = 'Correct! The first human space flight was in ' + spaceYear + '.';
+            } else if (spaceYear > 1961) {
+                resultText.innerText = 'Oops, that\'s too late! Many people have already flown to space by then.';
+            } else if (spaceYear < 1961) {
+                resultText.innerText = 'No, it\'s too early! Space flight hadn\'t started by then.';
+            } else {
+                resultText.innerText = 'Please enter a valid year.';
+            }
+        }
+    </script>
+</body>
+
+</html>

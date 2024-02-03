@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculate Fibonacci Number</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital@1&display=swap');
+        body, html {
+
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin: 10000;
+            font-family: 'Playfair Display', serif;
+            background-image: url(https://img.freepik.com/free-vector/gradient-numerology-background_23-2150066807.jpg);
+            color: #000000;
+        }
+        
+        input[type=number] {
+            font-family: 'Playfair Display', serif;
+            font-size: 40px;
+            padding: 10px;
+            text-align: center;
+            color: #000;
+            margin-bottom: 20px;
+        }
+        
+        .button {
+            font-family: 'Playfair Display', serif;
+            background: linear-gradient(#427fc4, #4d6c8f);
+            color: rgb(0, 0, 0);
+            font-size: 40px;
+            padding: 10px 20px;
+            margin: 10px;
+            border: none;
+            cursor: pointer;
+            color: #fff;
+        }
+        
+
+        #fibResult {
+            font-family: 'Playfair Display', serif;
+            font-size: 40px;
+            text-align: center; 
+        }
+        
+    </style>
+</head>
+<body>
+    <h1>Fibonacci Number</h1>
+    <input id="fibInput" type="number" value="10">
+    <button onclick="calculateFibonacci()" class="button">Calculate</button>
+    <button onclick="clearResults()" class="button">Clear</button>
+    <p id="fibResult">Result: </p>
+
+    <script>
+        function fibonacciSequence(n) {
+            let fib = [1, 1];
+            for (let i = 2; i < n; i++) {
+                fib[i] = fib[i - 1] + fib[i - 2];
+            }
+            return fib;
+        }
+
+        function printFibonacciSequence(sequence) {
+            let result = 'Result:<br><table border="1">';
+            sequence.forEach(function(number, index) {
+                result += `<tr><td>${index + 1}</td><td>${number}</td></tr>`;
+            });
+            result += '</table>';
+            return result;
+        }
+
+        function calculateFibonacci() {
+            let input = document.getElementById('fibInput');
+            let n = parseInt(input.value);
+            let result = fibonacciSequence(n);
+            document.getElementById('fibResult').innerHTML = printFibonacciSequence(result);
+        }
+
+        function clearResults() {
+            document.getElementById('fibResult').innerHTML = 'Result: ';
+        }
+    </script>
+</body>
+</html>

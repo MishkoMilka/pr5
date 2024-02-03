@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quadratic Equation Solver</title>
+    <style>    
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital@1&display=swap');
+
+        body {
+            background-color: rgba(0, 0, 0, 0.267);
+            color: rgba(0, 0, 0, 0.767);
+            font-family: 'Playfair Display', serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            text-align: center;
+            background-image: url(https://img.freepik.com/free-vector/gradient-numerology-background_23-2150066816.jpg);
+        }
+
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+
+        input {
+            font-family: 'Playfair Display', serif;
+            padding: 10px;
+            margin-bottom: 10px;
+            font-size: 20px;
+            border-radius: 5px;
+            border: 1px solid rgba(0, 0, 0, 0.767);
+        }
+
+        button {
+            font-family: 'Playfair Display', serif;
+            padding: 10px 20px;
+            font-size: 20px;
+            background-color: rgba(0, 0, 0, 0.767);
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        #results {
+            font-family: 'Playfair Display', serif;
+            font-size: 24px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Quadratic Equation Solver</h1>
+    <input type="number" placeholder="Enter the value of 'a'" id="a">
+    <input type="number" placeholder="Enter the value of 'b'" id="b">
+    <input type="number" placeholder="Enter the value of 'c'" id="c">
+    <button onclick="calculate()">Calculate</button>
+    <div id="results"></div>
+
+    <script>
+        function calculate() {
+            let a = document.getElementById('a').value;
+            let b = document.getElementById('b').value;
+            let c = document.getElementById('c').value;
+
+            a = parseFloat(a);
+            b = parseFloat(b);
+            c = parseFloat(c);
+
+            let D = b * b - 4 * a * c;
+            let x1 = (-b - Math.sqrt(D)) / (2 * a);
+            let x2 = (-b + Math.sqrt(D)) / (2 * a);
+            let resultString;
+            
+            if (D === 0) {
+                resultString = `The equation has two identical roots: x = ${x1}`;
+            } else if (D < 0) {
+                resultString = "The equation has no real roots";
+            } else if (D > 0) {
+                resultString = `The equation has two distinct roots: x1 = ${x1}, x2 = ${x2}`;
+            }
+
+            document.getElementById('results').innerText = resultString;
+        }
+    </script>
+</body>
+</html>

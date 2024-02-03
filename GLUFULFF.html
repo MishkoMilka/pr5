@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Age for Site Entry</title>
+    <style>
+       @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital@1&display=swap');
+        body {
+            text-align: center;
+            margin-top: 100px;
+            font-family: 'Playfair Display', serif;
+            background-image: url(https://img.freepik.com/free-photo/vibrant-pink-watercolor-painting-background_53876-139893.jpg?size=626&ext=jpg&ga=GA1.1.1788068356.1706486400&semt=ais)
+        }
+        input[type="number"] {
+            font-family: 'Playfair Display', serif;
+            padding: 10px;
+            margin: 20px;
+        }
+        button {
+            font-family: 'Playfair Display', serif;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            font-family: 'Playfair Display', serif;
+            background-color: #45a049;
+        }
+        .result {
+            font-family: 'Playfair Display', serif;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Age for Site Entry</h1>
+    <input type="number" id="userAge" placeholder="Enter your year of birth">
+    <button onclick="checkAge()">Check</button>
+    <p class="result" id="result"></p>
+    <script>
+        function checkAge() {
+            const ageInputElement = document.getElementById("userAge");
+            const userAge = parseInt(ageInputElement.value);
+            const resultElement = document.getElementById("result");
+            if (userAge > 18 && userAge < 101 && !isNaN(userAge)) {
+                resultElement.innerText = "Welcome!";
+            }
+            if (userAge < 18) {
+                resultElement.innerText = "You are too young.";
+            }
+            if (userAge > 100) {
+                resultElement.innerText = "You are too old.";
+        }
+    }
+    </script>
+</body>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Number Processing</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-image: url('https://img.freepik.com/free-photo/vivid-blurred-colorful-background_58702-2655.jpg?size=626&ext=jpg&ga=GA1.1.632798143.1705622400&semt=sph');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+    .container {
+      text-align: center;
+      padding: 20px;
+      background-color: rgba(255, 255, 255, 0.7);
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      border-radius: 5px;
+    }
+    .output {
+      margin-bottom: 10px;
+    }
+    input[type='number'] {
+      padding: 8px;
+      margin: 10px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      font-size: 16px;
+    }
+    button {
+      padding: 8px 12px;
+      border-radius: 5px;
+      border: none;
+      cursor: pointer;
+      background-color: #b66bbd;
+      color: white;
+      font-size: 16px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Number Processing</h2>
+    <div>
+      <label for="numberInput">Enter a number:</label>
+      <input type="number" id="numberInput">
+      <button onclick="handleNumberInput()">Process</button>
+    </div>
+    <div class="output" id="result"></div>
+  </div>
+
+  <script>
+    function handleNumberInput() {
+      let number = document.getElementById("numberInput").value;
+      let digits = Array.from(number.toString()).map(Number);
+
+      let resultHTML = `
+        <p>Number of digits in the number: ${digits.length}</p>
+        <p>Individual digits: ${digits.join(", ")}</p>
+      `;
+
+      let evenCount = digits.filter(digit => digit % 2 === 0).length;
+      let oddCount = digits.length - evenCount;
+
+      resultHTML += `
+        <p>Number of even digits: ${evenCount}</p>
+        <p>Number of odd digits: ${oddCount}</p>
+      `;
+      
+      document.getElementById("result").innerHTML = resultHTML;
+    }
+  </script>
+</body>
+</html>
+

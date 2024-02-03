@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Compliments</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: "Arial", sans-serif;
+            background: url('background_image.jpg') no-repeat center center fixed;
+            background-size: cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #4231db;
+            background-image: url(https://png.pngtree.com/thumb_back/fh260/background/20200714/pngtree-modern-double-color-futuristic-neon-background-image_351866.jpg)
+        } 
+
+        .container {
+            width: 60%;
+            background-color: rgba(159, 160, 224, 0.9);
+            text-align: center;
+            border-radius: 20px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        input {
+            padding: 10px;
+            font-size: 16px;
+            margin: 10px;
+            border-radius: 5px;
+            border: 1px solid #ab3bd8;
+        }
+
+        #answer {
+            margin-top: 20px;
+            text-align: left;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Make your day better with compliments</h1>
+        <form id="compliments">
+            How many compliments do you want? <input id="inputNumber" type="number"><br><br>
+            <button type="button" onclick="compliments()">Get compliments</button><br><br>
+        </form>
+        <div id="answer"></div>
+    </div>
+    <script>
+        function compliments() {
+            let compliments = ["funny", "smart", "cool", "genius", "clever", "sensible", "generous", "kind", "creative", "quick-witted", "determined", "optimistic", "determined"];
+            let animals = ["cat", "leopard", "duck", "rabbit", "monkey", "rhino", "squirrel", "lion", "chicken", "cow", "dog", "deer", "bird" , "kabipara", "hare", "wolf", "fox", "cobra", "mole", "panda", "hamster", "deer",];
+            let colors = ["red", "yellow", "blue", "green", "orange", "purple", "black", "gray", "burgundy", "blue", "mint", "turquoise"];
+            let number = parseInt(document.getElementById('inputNumber').value);
+            let answer = document.getElementById("answer");
+            let html = '';
+            if (isNaN(number)) {
+                alert('Please enter a valid number');
+                return;
+            }
+            for (let i = 1; i <= number; i++) {
+                let rand1 = Math.floor(Math.random() * colors.length);
+                let rand2 = Math.floor(Math.random() * compliments.length);
+                let rand3 = Math.floor(Math.random() * animals.length);
+                html += "<p style='color:"+ colors[rand1] + "'>" + i + ") You are as " + compliments[rand2] + " as " + animals[rand3] + "!</p>";
+            }
+            answer.innerHTML = html;
+        }
+    </script>
+</body>
+</html>

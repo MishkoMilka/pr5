@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital@1&display=swap');
+        body,html {
+            font-family: 'Playfair Display', serif;
+            height: 100%;
+            text-align: center;
+            padding-top: 100px;
+            background-image: url(https://bogatyr.club/uploads/posts/2021-11/thumbs/1636961257_2-bogatyr-club-p-fon-detskii-neitralnii-2.jpg)
+        }
+        input {
+            padding: 10px;
+            font-family: 'Playfair Display', serif;
+            margin: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            padding: 10px 20px;
+            font-family: 'Playfair Display', serif;
+            border-radius: 5px;
+            border: none;
+            background-color: #007bff;
+            color: #fff;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>Login Page</h1>
+    <input id="loginInput" type="text" placeholder="Enter your login"><br>
+    <input id="passwordInput" type="password" placeholder="Enter your password"><br>
+    <button onclick="checkLogin()">Login</button>
+    <p id="loginStatus"></p>
+
+    <script>
+        function checkLogin() {
+            let login = document.getElementById('loginInput').value;
+            let password = document.getElementById('passwordInput').value;
+            
+            if (login === 'User' && password === '123456') {
+                document.getElementById('loginStatus').innerText = 'Welcome!';
+            } else {
+                document.getElementById('loginStatus').innerText = 'Invalid login or password';
+            }
+        }
+    </script>
+</body>
+</html>
